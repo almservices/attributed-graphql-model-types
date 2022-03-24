@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  test:
+    name: PHP ${{ matrix.php-version }} ${{ matrix.description }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+#          - description: 'with lowest dependencies'
+#            os: ubuntu-latest
+#            php-version: '7.4'
+#            composer-flags: '--prefer-lowest'
+#          - os: ubuntu-latest
+#            php-version: '7.4'
+#          - os: ubuntu-latest
+#            php-version: '8.0'
+          - os: ubuntu-latest
+            php-version: '8.1'
+#          - description: on macOS
+#            os: macos-latest
+#            php-version: '8.1'
+#          - description: on Windows
+#            os: windows-latest
+#            php-version: '8.1'
+#          - os: ubuntu-latest
+#            php-version: '8.2'
+#            composer-flags: '--ignore-platform-reqs'
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v3
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          coverage: none
+      - id: composer-cache
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+      - uses: actions/cache@v2
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
+      - run: composer install
+      - run: composer install --working-dir=tools
+      - run: composer cs-fixer
+      - run: composer phpstan
+      - run: composer phpunit
+      - run: composer validate --working-dir=tools ../composer.json --no-interaction

@@ -1,0 +1,18 @@
+includes:
+    - vendor/phpstan/phpstan-phpunit/extension.neon
+
+parameters:
+    level: max
+    paths:
+        - src
+        - tests
+    ignoreErrors:
+        -
+            message: "#^Parameter \\#2 \\$fields of method AlmServices\\\\Graphql\\\\ObjectType\\:\\:__construct\\(\\) expects array\\<AlmServices\\\\Graphql\\\\FieldInterface\\>\\|\\(Closure\\(\\)\\: array\\<AlmServices\\\\Graphql\\\\FieldInterface\\>\\), array\\<AlmServices\\\\Graphql\\\\FieldInterface\\>\\|\\(Closure\\(\\)\\: Generator\\<mixed, AlmServices\\\\Graphql\\\\FieldInterface, mixed, mixed\\>\\) given\\.$#"
+            count: 1
+            path: src/ModelType.php
+
+        -
+            message: "#^Parameter \\#1 \\$wrappedType of static method GraphQL\\\\Type\\\\Definition\\\\Type\\:\\:listOf\\(\\) expects GraphQL\\\\Type\\\\Definition\\\\Type, \\(Closure\\)\\|GraphQL\\\\Type\\\\Definition\\\\NullableType\\|GraphQL\\\\Type\\\\Definition\\\\Type given\\.$#"
+            count: 1
+            path: src/ObjectType.php

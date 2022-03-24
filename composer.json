@@ -1,0 +1,55 @@
+{
+    "name": "almservices/attributed-graphql-model-types",
+    "description": "Attribute based graphql model/types",
+    "license": "MIT",
+    "type": "library",
+    "keywords": [
+        "graphql",
+        "attribute",
+        "annotation",
+        "model"
+    ],
+    "authors": [
+        {
+            "name": "Grzegorz Stachniuk",
+            "email": "grzegorz.stachniuk@almservices.pl"
+        },
+        {
+            "name": "Kuba Werłos",
+            "email": "werlos@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "ext-mbstring": "*",
+        "nette/php-generator": "^3.6.6",
+        "webonyx/graphql-php": "^v14.0.0"
+    },
+    "require-dev": {
+        "ext-dom": "*",
+        "doctrine/annotations": "^1.13",
+        "doctrine/common": "^3.2",
+        "phpstan/phpstan": "^1.4",
+        "phpstan/phpstan-phpunit": "^1.0",
+        "phpunit/phpunit": ">=9"
+    },
+    "autoload": {
+        "psr-4": {
+            "AlmServices\\Graphql\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Example\\": "example/",
+            "Demo\\": "demo/",
+            "AlmServices\\Test\\": "tests/"
+        }
+    },
+    "scripts": {
+        "cs-fixer": "tools/vendor/bin/php-cs-fixer fix --dry-run",
+        "cs-fixer-fix": "tools/vendor/bin/php-cs-fixer fix",
+        "phpstan": "./vendor/bin/phpstan",
+        "phpstan-update-baseline": "./vendor/bin/phpstan --generate-baseline",
+        "phpunit": "./vendor/bin/phpunit tests"
+    }
+}
