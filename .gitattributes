@@ -5,3 +5,5 @@
 /tools/ export-ignore
 /phpstan.neon export-ignore
 /phpunit.dist.xml export-ignore
+
+* text eol=lf
