@@ -21,12 +21,12 @@ jobs:
 #            php-version: '8.0'
           - os: ubuntu-latest
             php-version: '8.1'
-#          - description: on macOS
-#            os: macos-latest
-#            php-version: '8.1'
-#          - description: on Windows
-#            os: windows-latest
-#            php-version: '8.1'
+          - description: on macOS
+            os: macos-latest
+            php-version: '8.1'
+          - description: on Windows
+            os: windows-latest
+            php-version: '8.1'
 #          - os: ubuntu-latest
 #            php-version: '8.2'
 #            composer-flags: '--ignore-platform-reqs'
