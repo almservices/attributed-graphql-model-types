@@ -46,7 +46,7 @@
         }
     },
     "scripts": {
-        "cs-fixer": "tools/vendor/bin/php-cs-fixer fix --dry-run",
+        "cs-fixer": "tools/vendor/bin/php-cs-fixer fix --diff --dry-run",
         "cs-fixer-fix": "tools/vendor/bin/php-cs-fixer fix",
         "phpstan": "./vendor/bin/phpstan",
         "phpstan-update-baseline": "./vendor/bin/phpstan --generate-baseline",
