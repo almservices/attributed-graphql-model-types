@@ -21,6 +21,6 @@ return (new PhpCsFixer\Config())
         PhpCsFixerCustomFixers\Fixer\StringableInterfaceFixer::name() => true,
         PhpCsFixerCustomFixers\Fixer\PhpdocArrayStyleFixer::name() => true,
         'phpdoc_to_comment' => false,
-        'line_ending' => false
+        'line_ending' => false,
     ])
 ;
