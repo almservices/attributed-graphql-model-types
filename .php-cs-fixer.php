@@ -22,4 +22,5 @@ return (new PhpCsFixer\Config())
         PhpCsFixerCustomFixers\Fixer\PhpdocArrayStyleFixer::name() => true,
         'phpdoc_to_comment' => false,
     ])
+    ->setLineEnding("\n")
 ;
