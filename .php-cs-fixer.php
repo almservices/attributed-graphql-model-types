@@ -18,12 +18,12 @@ return (new PhpCsFixer\Config())
         '@PSR2' => true,
         '@PSR12' => true,
         '@PhpCsFixer' => true,
-        PhpCsFixerCustomFixers\Fixer\StringableInterfaceFixer::name() => true,
-        PhpCsFixerCustomFixers\Fixer\PhpdocArrayStyleFixer::name() => true,
-        'phpdoc_to_comment' => false,
-        'php_unit_test_class_requires_covers' => false,
         'general_phpdoc_annotation_remove' => [
             'annotations' => ['covers', 'coversNothing'],
         ],
+        'php_unit_test_class_requires_covers' => false,
+        PhpCsFixerCustomFixers\Fixer\PhpdocArrayStyleFixer::name() => true,
+        PhpCsFixerCustomFixers\Fixer\StringableInterfaceFixer::name() => true,
+        'phpdoc_to_comment' => false,
     ])
 ;
