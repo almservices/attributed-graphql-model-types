@@ -32,12 +32,12 @@ jobs:
       fail-fast: false
       matrix:
         include:
-#          - description: 'with lowest dependencies'
-#            os: ubuntu-latest
-#            php-version: '7.4'
-#            composer-flags: '--prefer-lowest'
-#          - os: ubuntu-latest
-#            php-version: '7.4'
+          - description: 'with lowest dependencies'
+            os: ubuntu-latest
+            php-version: '7.4'
+            composer-flags: '--prefer-lowest'
+          - os: ubuntu-latest
+            php-version: '7.4'
           - os: ubuntu-latest
             php-version: '8.0'
           - os: ubuntu-latest
