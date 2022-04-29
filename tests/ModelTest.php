@@ -31,6 +31,7 @@ use GraphQL\Type\Definition\Type;
 use PHPUnit\Framework\TestCase;
 
 /**
+ * @requires PHP 8.1
  * @covers \AlmServices\Graphql\ModelType
  * @covers \AlmServices\Graphql\TypeContainer
  *
@@ -129,6 +130,9 @@ class ModelTest extends TestCase
         $container->get(NotAModel::class);
     }
 
+    /**
+     * @requires PHP 8.1
+     */
     public function testNotAEnum(): void
     {
         $container = new TypeContainer(false);

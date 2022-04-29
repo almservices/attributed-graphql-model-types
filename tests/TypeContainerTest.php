@@ -47,6 +47,9 @@ class TypeContainerTest extends TestCase
         self::assertEquals($expected, (new TypeContainer(false))->guess($type));
     }
 
+    /**
+     * @requires PHP 8.1
+     */
     public function testGuessObject(): void
     {
         $animalType = (new TypeContainer(false))->guess(Animal::class);
@@ -54,7 +57,10 @@ class TypeContainerTest extends TestCase
         self::assertEquals('AnimalAlias', $animalType->name);
     }
 
-    public function testGuessNonNUllObject(): void
+    /**
+     * @requires PHP 8.1
+     */
+    public function testGuessNonNullObject(): void
     {
         $wrapper = (new TypeContainer(false))->guess(Animal::class.'!');
         self::assertInstanceOf(NonNull::class, $wrapper);

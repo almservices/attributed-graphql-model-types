@@ -57,7 +57,8 @@ class TypeContainer
             if (!class_exists($name)) {
                 throw new ConfigurationException('No factory found for '.$name);
             }
-            if ((new \ReflectionClass($name))->implementsInterface(\UnitEnum::class)) {
+
+            if (interface_exists(\UnitEnum::class) && (new \ReflectionClass($name))->implementsInterface(\UnitEnum::class)) {
                 $factory = fn () => new EnumType($name, $this);
             } else {
                 $factory = fn () => new ModelType($name, $this, $this->async);
