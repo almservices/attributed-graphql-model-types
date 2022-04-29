@@ -20,7 +20,7 @@ jobs:
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
-      - run: composer install
+      - run: composer update
       - run: composer install --working-dir=tools
       - run: composer cs-fixer
       - run: composer phpstan
@@ -48,9 +48,9 @@ jobs:
           - description: on Windows
             os: windows-latest
             php-version: '8.1'
-#          - os: ubuntu-latest
-#            php-version: '8.2'
-#            composer-flags: '--ignore-platform-reqs'
+          - os: ubuntu-latest
+            php-version: '8.2'
+            composer-flags: '--ignore-platform-reqs'
     runs-on: ${{ matrix.os }}
     timeout-minutes: 10
     steps:
@@ -65,5 +65,5 @@ jobs:
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
-      - run: composer install
+      - run: composer update ${{ matrix.composer-flags }}
       - run: composer phpunit
