@@ -2,6 +2,7 @@
 
 [![Latest stable version](https://img.shields.io/packagist/v/almservices/attributed-graphql-model-types.svg?label=current%20version)](https://packagist.org/packages/almservices/attributed-graphql-model-types)
 [![CI Status](https://github.com/almservices/attributed-graphql-model-types/workflows/CI/badge.svg?branch=main)](https://github.com/almservices/attributed-graphql-model-types/actions)
+[![Coverage Status](https://coveralls.io/repos/github/almservices/attributed-graphql-model-types/badge.svg)](https://coveralls.io/github/almservices/attributed-graphql-model-types)
 [![PHP version](https://img.shields.io/packagist/php-v/almservices/attributed-graphql-model-types.svg)](https://php.net)
 [![License](https://img.shields.io/github/license/almservices/attributed-graphql-model-types.svg)](LICENSE)
 
