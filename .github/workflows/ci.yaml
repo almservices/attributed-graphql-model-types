@@ -20,7 +20,7 @@ jobs:
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
-      - run: composer install
+      - run: composer update
       - run: composer install --working-dir=tools
       - run: composer cs-fixer
       - run: composer phpstan
