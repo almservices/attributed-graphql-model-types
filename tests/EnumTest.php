@@ -11,6 +11,8 @@ use GraphQL\Type\Definition\EnumValueDefinition;
 use PHPUnit\Framework\TestCase;
 
 /**
+ * @requires PHP 8.1
+ *
  * @covers \AlmServices\Graphql\EnumType
  *
  * @internal
