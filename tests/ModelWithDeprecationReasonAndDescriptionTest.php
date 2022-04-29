@@ -10,6 +10,7 @@ use Example\Attribute\ModelWithDeprecationReasonAndDescription;
 use PHPUnit\Framework\TestCase;
 
 /**
+ * @requires PHP 8.0
  * @covers \AlmServices\Graphql\ModelType
  *
  * @internal
@@ -20,12 +21,12 @@ class ModelWithDeprecationReasonAndDescriptionTest extends TestCase
     {
         $model = new ModelType(ModelWithDeprecationReasonAndDescription::class, new TypeContainer(false), false);
         self::assertEquals(
-            expected: 'Do not use ModelWithDescription.foo anymore',
-            actual: $model->getField('foo')->deprecationReason,
+            'Do not use ModelWithDescription.foo anymore',
+            $model->getField('foo')->deprecationReason,
         );
         self::assertEquals(
-            expected: 'bar',
-            actual: $model->getField('foo')->description,
+            'bar',
+            $model->getField('foo')->description,
         );
     }
 }

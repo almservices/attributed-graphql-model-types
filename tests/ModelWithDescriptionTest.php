@@ -10,6 +10,8 @@ use Example\Attribute\ModelWithDescription;
 use PHPUnit\Framework\TestCase;
 
 /**
+ * @requires PHP 8.0
+ *
  * @internal
  * @covers \AlmServices\Graphql\ModelType
  */
@@ -19,8 +21,8 @@ class ModelWithDescriptionTest extends TestCase
     {
         $model = new ModelType(ModelWithDescription::class, new TypeContainer(false), false);
         self::assertEquals(
-            expected: 'Bar',
-            actual: $model->getField('foo')->description,
+            'Bar',
+            $model->getField('foo')->description,
         );
     }
 }

@@ -15,6 +15,8 @@ use GraphQL\Type\Schema;
 use PHPUnit\Framework\TestCase;
 
 /**
+ * @requires PHP 8.0
+ *
  * @internal
  * @covers \AlmServices\Graphql\ModelType
  * @covers \AlmServices\Graphql\TypeContainer
@@ -42,7 +44,7 @@ class ModelResolverTest extends TestCase
 
     public function testArgs(): void
     {
-        $result = GraphQL::executeQuery(schema: $this->schema, source: 'query {foo {args(foo: "bar", bar: {foo: "string"}, baz: [1], qux: [2])}}', contextValue: new Context('bar'))->toArray();
+        $result = GraphQL::executeQuery($this->schema, 'query {foo {args(foo: "bar", bar: {foo: "string"}, baz: [1], qux: [2])}}', null, new Context('bar'))->toArray();
         self::assertEquals([
             'data' => [
                 'foo' => [
@@ -54,7 +56,7 @@ class ModelResolverTest extends TestCase
 
     public function testContext(): void
     {
-        $result = GraphQL::executeQuery(schema: $this->schema, source: 'query {foo {context}}', contextValue: new Context('bar'))->toArray();
+        $result = GraphQL::executeQuery($this->schema, 'query {foo {context}}', null, new Context('bar'))->toArray();
         self::assertEquals([
             'data' => [
                 'foo' => [

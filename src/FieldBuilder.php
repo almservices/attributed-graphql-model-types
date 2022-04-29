@@ -122,7 +122,6 @@ class FieldBuilder
         ;
         $class->addMethod('type')
             ->setPublic()
-            ->setReturnType('Type|\Closure')
             ->setComment('@return callable|Type')
             ->setBody('return $this->type;')
         ;

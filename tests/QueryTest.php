@@ -54,8 +54,8 @@ class QueryTest extends TestCase
     public function testExecution(): void
     {
         $result = GraphQL::executeQuery(
-            schema: $this->schema,
-            source: '{animals {family name id: animalId} identifiable {bar}}'
+            $this->schema,
+            '{animals {family name id: animalId} identifiable {bar}}'
         );
 
         self::assertEquals([

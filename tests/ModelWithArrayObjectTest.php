@@ -14,6 +14,8 @@ use GraphQL\Type\Schema;
 use PHPUnit\Framework\TestCase;
 
 /**
+ * @requires PHP 8.0
+ *
  * @internal
  * @covers \AlmServices\Graphql\ModelType
  */
@@ -35,16 +37,16 @@ class ModelWithArrayObjectTest extends TestCase
         ]);
 
         $result = GraphQL::executeQuery(
-            schema: $schema,
-            source: 'query {foo{values}}'
+            $schema,
+            'query {foo{values}}'
         )->toArray();
 
-        self::assertEquals(expected: [
+        self::assertEquals([
             'data' => [
                 'foo' => [
                     'values' => ['a', 'b', 'c'],
                 ],
             ],
-        ], actual: $result);
+        ], $result);
     }
 }

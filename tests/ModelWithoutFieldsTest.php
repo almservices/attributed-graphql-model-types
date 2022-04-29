@@ -16,6 +16,8 @@ use Example\Attribute\ModelWithoutFields;
 use PHPUnit\Framework\TestCase;
 
 /**
+ * @requires PHP 8.0
+ *
  * @internal
  * @covers \AlmServices\Graphql\ModelType
  */

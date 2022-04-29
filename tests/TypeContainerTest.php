@@ -117,11 +117,11 @@ class TypeContainerTest extends TestCase
 
         yield 'Int]' => ['Int]', 'No factory found for Int]'];
 
-        yield '[Int' => ['[Int', 'No factory found for In'];
+        yield '[Int' => ['[Int', 'List not closed in [Int'];
 
         yield '[]' => ['[]', 'No factory found for '];
 
-        yield '[' => ['[', 'No factory found for '];
+        yield '[' => ['[', 'List not closed in ['];
 
         yield '[[Int]]' => ['[[Int]]', 'List in List found in [[Int]]'];
     }
