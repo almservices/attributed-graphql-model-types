@@ -68,7 +68,9 @@ jobs:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
       - run: composer update ${{ matrix.composer-flags }}
-      - run: composer phpunit -- --coverage-clover=./build/logs/clover.xml
+      - run: composer phpunit
+      - if: matrix.coverage-driver == 'pcov'
+        run: composer phpunit -- --coverage-clover=./build/logs/clover.xml
       - if: matrix.coverage-driver == 'pcov'
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
