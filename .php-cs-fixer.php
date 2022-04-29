@@ -5,8 +5,8 @@ return (new PhpCsFixer\Config())
     ->setRiskyAllowed(true)
     ->setFinder(
         PhpCsFixer\Finder::create()
-            ->in(__DIR__.'/example')
             ->in(__DIR__.'/demo')
+            ->in(__DIR__.'/example')
             ->in(__DIR__.'/src')
             ->in(__DIR__.'/tests')
             ->append([
