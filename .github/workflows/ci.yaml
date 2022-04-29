@@ -66,5 +66,4 @@ jobs:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
       - run: composer install
-      - run: composer install --working-dir=tools
       - run: composer phpunit
