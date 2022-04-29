@@ -32,7 +32,6 @@
         "phpstan/phpstan": "^1.4",
         "phpstan/phpstan-phpunit": "^1.0",
         "phpunit/phpunit": ">=9",
-        "symfony/polyfill-php81": "^1.25",
         "symfony/polyfill-php80": "^1.25"
     },
     "autoload": {
