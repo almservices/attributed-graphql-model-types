@@ -11,7 +11,6 @@ use PHPUnit\Framework\TestCase;
  * @requires PHP 8.0
  *
  * @internal
- * @coversNothing
  */
 class FieldBuilderStrategyTest extends TestCase
 {

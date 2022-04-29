@@ -21,5 +21,9 @@ return (new PhpCsFixer\Config())
         PhpCsFixerCustomFixers\Fixer\StringableInterfaceFixer::name() => true,
         PhpCsFixerCustomFixers\Fixer\PhpdocArrayStyleFixer::name() => true,
         'phpdoc_to_comment' => false,
+        'php_unit_test_class_requires_covers' => false,
+        'general_phpdoc_annotation_remove' => [
+            'annotations' => ['covers', 'coversNothing'],
+        ],
     ])
 ;

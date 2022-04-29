@@ -19,9 +19,6 @@ use PHPUnit\Framework\TestCase;
  * @requires PHP 8.1
  *
  * @internal
- * @covers \AlmServices\Graphql\ModelType
- * @covers \AlmServices\Graphql\ObjectType
- * @covers \AlmServices\Graphql\TypeContainer
  */
 class QueryTest extends TestCase
 {

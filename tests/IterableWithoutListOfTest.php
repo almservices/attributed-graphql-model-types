@@ -11,7 +11,6 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @requires PHP 8.0
- * @covers \AlmServices\Graphql\ModelType
  *
  * @internal
  */

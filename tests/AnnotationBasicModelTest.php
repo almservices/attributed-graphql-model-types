@@ -16,7 +16,6 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @internal
- * @covers \AlmServices\Graphql\AttributeResolver
  */
 class AnnotationBasicModelTest extends TestCase
 {
