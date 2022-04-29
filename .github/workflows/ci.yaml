@@ -42,6 +42,8 @@ jobs:
             php-version: '8.0'
           - os: ubuntu-latest
             php-version: '8.1'
+            coverage-driver: pcov
+            description: 'with calculating code coverage'
           - description: on macOS
             os: macos-latest
             php-version: '8.1'
@@ -58,7 +60,7 @@ jobs:
       - uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-version }}
-          coverage: none
+          coverage: ${{ matrix.coverage-driver }}
       - id: composer-cache
         run: echo "::set-output name=dir::$(composer config cache-files-dir)"
       - uses: actions/cache@v2
@@ -66,4 +68,8 @@ jobs:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
       - run: composer update ${{ matrix.composer-flags }}
-      - run: composer phpunit
+      - run: composer phpunit -- --coverage-clover=./build/logs/clover.xml
+      - if: matrix.coverage-driver == 'pcov'
+        env:
+          COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: composer require --dev php-coveralls/php-coveralls --quiet --with-all-dependencies && ./vendor/bin/php-coveralls --verbose
