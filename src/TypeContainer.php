@@ -75,7 +75,13 @@ class TypeContainer
     public function guess(string $rawType)
     {
         if (str_starts_with($rawType, '[')) {
-            $subTypeRaw = substr($rawType, 1, strpos($rawType, ']') - 1);
+            $listTypeClosingPosition = strpos($rawType, ']');
+
+            if (false === $listTypeClosingPosition) {
+                throw new ConfigurationException('List not closed in '.$rawType);
+            }
+
+            $subTypeRaw = substr($rawType, 1, $listTypeClosingPosition - 1);
             if (str_contains($subTypeRaw, '[') || str_contains($subTypeRaw, ']')) {
                 throw new ConfigurationException('List in List found in '.$rawType);
             }

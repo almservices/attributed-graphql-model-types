@@ -16,6 +16,8 @@ use GraphQL\Type\Schema;
 use PHPUnit\Framework\TestCase;
 
 /**
+ * @requires PHP 8.0
+ *
  * @internal
  * @covers \AlmServices\Graphql\Arguments
  * @covers \AlmServices\Graphql\FieldArgumentable
@@ -34,8 +36,8 @@ class MutationTest extends TestCase
                 'Mutation',
                 [
                     new FieldArgumentable(
-                        name: 'createDogeMeme',
-                        type: new ObjectType(
+                        'createDogeMeme',
+                        new ObjectType(
                             'Meme',
                             static fn () => [
                                 new Field(
@@ -44,14 +46,14 @@ class MutationTest extends TestCase
                                 ),
                             ],
                         ),
-                        resolver: static fn ($root, array $args) => [
+                        static fn ($root, array $args) => [
                             'url' => sprintf(
                                 'https://api.memegen.link/images/doge/%s/%s.png',
                                 urlencode($args['top']),
                                 urlencode($args['bot']),
                             ),
                         ],
-                        args: new Arguments(
+                        new Arguments(
                             new class() extends Field implements FieldMapping,
                             FieldDefaultValue {
                                 public function __construct()
@@ -93,8 +95,8 @@ class MutationTest extends TestCase
     public function testExecution(): void
     {
         $result = GraphQL::executeQuery(
-            schema: $this->schema,
-            source: 'mutation {createDogeMeme(top: "my top text") { url }}'
+            $this->schema,
+            'mutation {createDogeMeme(top: "my top text") { url }}'
         );
 
         // MY+TOP+TEXT is uppercase because we used field mapping

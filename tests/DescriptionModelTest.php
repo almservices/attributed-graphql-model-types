@@ -10,6 +10,7 @@ use Example\Attribute\DescriptionModel;
 use PHPUnit\Framework\TestCase;
 
 /**
+ * @requires PHP 8.0
  * @covers \AlmServices\Graphql\ModelType
  *
  * @internal
@@ -20,8 +21,8 @@ class DescriptionModelTest extends TestCase
     {
         $model = new ModelType(DescriptionModel::class, new TypeContainer(false), false);
         self::assertEquals(
-            expected: 'Authorization required',
-            actual: $model->description,
+            'Authorization required',
+            $model->description,
         );
     }
 }

@@ -38,14 +38,14 @@ class IntEnumModelTest extends TestCase
         ]);
 
         $result = GraphQL::executeQuery(
-            schema: $schema,
-            source: 'query {foo}'
+            $schema,
+            'query {foo}'
         )->toArray();
 
-        self::assertEquals(expected: [
+        self::assertEquals([
             'data' => [
                 'foo' => 'BAR',
             ],
-        ], actual: $result);
+        ], $result);
     }
 }

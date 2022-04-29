@@ -20,6 +20,8 @@ use GraphQL\Type\Definition\Type;
 use PHPUnit\Framework\TestCase;
 
 /**
+ * @requires PHP 8.0
+ *
  * @internal
  * @covers \AlmServices\Graphql\FieldBuilder
  */

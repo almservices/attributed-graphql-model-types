@@ -8,6 +8,8 @@ use AlmServices\Graphql\FieldBuilderStrategy;
 use PHPUnit\Framework\TestCase;
 
 /**
+ * @requires PHP 8.0
+ *
  * @internal
  * @coversNothing
  */

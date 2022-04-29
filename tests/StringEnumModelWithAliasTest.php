@@ -38,14 +38,14 @@ class StringEnumModelWithAliasTest extends TestCase
         ]);
 
         $result = GraphQL::executeQuery(
-            schema: $schema,
-            source: 'query {foo}'
+            $schema,
+            'query {foo}'
         )->toArray();
 
-        self::assertEquals(expected: [
+        self::assertEquals([
             'data' => [
                 'foo' => 'bar',
             ],
-        ], actual: $result);
+        ], $result);
     }
 }
