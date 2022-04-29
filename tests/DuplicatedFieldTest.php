@@ -13,7 +13,6 @@ use PHPUnit\Framework\TestCase;
  * @requires PHP 8.0
  *
  * @internal
- * @covers \FieldFactory
  */
 class DuplicatedFieldTest extends TestCase
 {

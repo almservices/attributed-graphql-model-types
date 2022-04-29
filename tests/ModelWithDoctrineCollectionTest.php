@@ -18,7 +18,6 @@ use PHPUnit\Framework\TestCase;
  * @requires PHP 8.0
  *
  * @internal
- * @covers \AlmServices\Graphql\ModelType
  */
 class ModelWithDoctrineCollectionTest extends TestCase
 {

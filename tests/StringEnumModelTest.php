@@ -17,7 +17,6 @@ use PHPUnit\Framework\TestCase;
  * @requires PHP 8.1
  *
  * @internal
- * @covers \AlmServices\Graphql\EnumType
  */
 class StringEnumModelTest extends TestCase
 {

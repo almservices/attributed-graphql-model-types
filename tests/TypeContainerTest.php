@@ -12,8 +12,6 @@ use GraphQL\Type\Definition\Type;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \AlmServices\Graphql\TypeContainer
- *
  * @internal
  */
 class TypeContainerTest extends TestCase

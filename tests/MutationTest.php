@@ -19,9 +19,6 @@ use PHPUnit\Framework\TestCase;
  * @requires PHP 8.0
  *
  * @internal
- * @covers \AlmServices\Graphql\Arguments
- * @covers \AlmServices\Graphql\FieldArgumentable
- * @covers \AlmServices\Graphql\ObjectType
  */
 class MutationTest extends TestCase
 {
