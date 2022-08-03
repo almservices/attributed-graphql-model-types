@@ -87,7 +87,7 @@ class Source
     }
 
     /**
-     * @return iterable<object>
+     * @return array<int, mixed>|iterable<object>
      */
     private function attributes(): iterable
     {

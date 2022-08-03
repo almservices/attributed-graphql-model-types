@@ -52,7 +52,7 @@ class ObjectType extends BaseObjectType
     public static function listOf($wrappedType): ListOfType
     {
         if (is_callable($wrappedType)) {
-            $reflectionMethod = new \ReflectionMethod(BaseObjectType::class);
+            $reflectionMethod = new \ReflectionMethod(BaseObjectType::class, 'listOf');
             $parameters = $reflectionMethod->getParameters();
             $firstParam = $parameters[0];
             if ($firstParam->getType() instanceof \ReflectionNamedType) {
